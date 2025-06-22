@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input {
+      margin-bottom: 10px;
+    }
+    #message {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Login Form</h2>
+
+  <form onsubmit="return validateLogin()">
+    <label>Username:</label><br>
+    <input type="text" id="username" required><br>
+
+    <label>Password:</label><br>
+    <input type="password" id="password" required><br>
+
+    <input type="submit" value="Login">
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    function validateLogin() {
+      // Sample credentials
+      const validUsername = "admin";
+      const validPassword = "1234";
+
+      // Get user input
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Check if input matches valid credentials
+      if (username === validUsername && password === validPassword) {
+        alert("Login successful!");
+        return true; // allow form to submit
+      } else {
+        document.getElementById("message").innerText = "Invalid username or password.";
+        return false; // prevent form submission
+      }
+    }
+  </script>
+
+</body>
+</html>
